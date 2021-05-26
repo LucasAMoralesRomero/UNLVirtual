@@ -25,10 +25,10 @@ int main (int argc, char *argv[]) {
 	cout << "Ingrese tercer runa: ";
 	cin >> runa3;
 	cout << endl;
-	total = (runa1 - ((runa2/2) + (runa3/2)));
-	vida = vida - total;
+	total = (runa3 - ((runa1/3) + (runa2/2)));
 	cout << "Sus puntos de vida son: " << vida;
 	cout << endl;
+	cout << vida <<endl;
 	vida = vida - total;
 	cout << "Sus puntos de vida son: " << vida;
 	estaVivo = vida > 0;

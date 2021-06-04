@@ -21,6 +21,11 @@ int main (int argc, char *argv[]) {
 	cout << borde << endl;
 	cout << "Ingresa tu año de nacimiento:" << endl;
 	cin >> anio;
+	if (anio > anio_A_Comparar)
+		{
+		cout << "ERROR!! Su anio de nacimento no puede ser mayor que el anio actual, reintente por favor" << endl;
+		cin >> anio;
+		}
 	cout << "Ingresa tu mes de nacimiento:" << endl;
 	cin >> mes;
 	if (mes > 12 || mes < 1)

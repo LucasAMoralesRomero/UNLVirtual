@@ -21,24 +21,40 @@ int main (int argc, char *argv[]) {
 	cout << borde << endl;
 	cout << "Ingresa tu año de nacimiento:" << endl;
 	cin >> anio;
+	//utilizo un if para comparar que el año que ingreso no sea mayor que el actual, y un do while para aseguararme que no tome un año erroneo
 	if (anio > anio_A_Comparar)
 		{
-		cout << "ERROR!! Su anio de nacimento no puede ser mayor que el anio actual, reintente por favor" << endl;
-		cin >> anio;
+			do
+				
+				{
+					cout << "ERROR!! Su anio de nacimento no puede ser mayor que el anio actual, reintente por favor" << endl;
+					cin >> anio;
+				}
+			while(anio > anio_A_Comparar);
 		}
 	cout << "Ingresa tu mes de nacimiento:" << endl;
 	cin >> mes;
+	//utilizo un if para validar el mes, que sea real y un do while para asegurarme que no acepte un mes erroneo
 	if (mes > 12 || mes < 1)
 		{
-			cout << "ERROR!! Mes no puede sem mayor que 12 ni menor que 1, reintente por favor" << endl;
-			cin >> mes;
+			do
+				{
+					cout << "ERROR!! Mes no puede sem mayor que 12 ni menor que 1, reintente por favor" << endl;
+					cin >> mes;
+				}
+			while (mes > 12 || mes < 1);
 		}
 	cout << "Ingresa tu dia de nacimiento:" << endl;
 	cin >> dia;
+	//al igual que los casos anteriores, utilizo un if para validar que el dia ingresado exista en el mes (se lee del array de dias) y un do while para validar y no salir hasta tener un dato correcto.
 	if (dia > dias[mes-1]|| dia < 1)
 		{
-			cout << "ERROR!! Dia para el mes " << meses [mes-1] << " no puede ser mayor a " << dias[mes-1] << " ni ser menor que uno, reintente por favor" << endl;
-			cin >> dia;
+			do
+				{
+					cout << "ERROR!! Dia para el mes " << meses [mes-1] << " no puede ser mayor a " << dias[mes-1] << " ni ser menor que uno, reintente por favor" << endl;
+					cin >> dia;
+				}
+			while (dia >dias[mes-1] || dia < 1);
 		}
 	cout << "Usted nacio el " << dia << " de " << meses[mes-1] << " de " << anio << endl;
 	//seteo la bandera verdadera solo si el mes y dia de nacimiento es menor o igual que la fecha de comparacion (la  fecha de entrega de la tarea)

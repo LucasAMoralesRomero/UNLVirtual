@@ -18,7 +18,9 @@ current_source=main.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=3:34
+cursor=62:35
+breakpoint=51
+breakpoint_annotation=
 open=true
 [config]
 name=Debug

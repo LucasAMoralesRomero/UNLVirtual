@@ -56,7 +56,7 @@ int main (int argc, char *argv[]) {
 						ContadorJugador ++;
 						if(NumeroAleatorio < 7 )//si el numero aleatorio es < 7 significa que esta entre 1 y 7
 						{
-							SumaJugador = SumaJugador + (NumeroAleatorio + 1);//suma a suma jugador el valor de la carta que salio
+							SumaJugador = SumaJugador + Mazo[1][NumeroAleatorio];//suma a suma jugador el valor de la carta que salio
 						}
 						else // si no es menor que 7 significa que es 10 11 o 12
 						{

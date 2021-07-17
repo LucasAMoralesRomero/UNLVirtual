@@ -22,6 +22,7 @@ int main (int argc, char *argv[]) {
 	float SumaJugador = 0;//acumula los resultados del jugador
 	int JugadasComputadora [2][14]{{0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0}};//array que contiene las jugadas de la computadora
 	int ContadorComputadora = 0;//contador de jugadas, sirve como indice deJugadasComputadora
+	float SumaComputadora = 0;//acumula los resultados de la computadora
 	string Jugador = "";
 	bool QuieroJugar = true; //bandera para indicar si quiero jugar o no
 	int NumeroAleatorio = 0;//variable para almacenar el numero aleatorio
@@ -57,8 +58,7 @@ int main (int argc, char *argv[]) {
 						if(NumeroAleatorio < 7 )//si el numero aleatorio es < 7 significa que esta entre 1 y 7
 						{
 							SumaJugador = SumaJugador + Mazo[1][NumeroAleatorio];//suma a suma jugador el valor de la carta que salio
-						}
-						else // si no es menor que 7 significa que es 10 11 o 12
+						} else // si no es menor que 7 significa que es 10 11 o 12 
 						{
 							SumaJugador = SumaJugador + 0.5;
 						}
@@ -67,6 +67,43 @@ int main (int argc, char *argv[]) {
 					{
 						cout <<Jugador << " Te pasaste de 7.5, perdiste."<<endl;
 					}
+					break;
+				case 78 | 110://presione N o n, juega el crupier
+					cout << "Muy bien, " << Jugador << " es mi turno de jugar." << endl;
+					do
+						{
+							do
+								{
+								Palo = rand() % 3 + 0;//genero un numero aleatorio entre 0 y 3
+								NumeroAleatorio = rand() % 9 + 0;//genero un numero aleatorio entre 1 y 10 
+								} while(Mazo[Palo+4][NumeroAleatorio] == 1);//me fijo que la carta que genere no haya salido ya
+							cout << "Me salio el " << Mazo[1][NumeroAleatorio] << " de " << Palos[Palo] << endl;//el crupier anuncia la carta que le salio
+							Mazo[Palo+1][NumeroAleatorio]=1;//cambio la bandera para indicar que ya salio esta carta
+							JugadasComputadora[0][ContadorComputadora] = Mazo[1][NumeroAleatorio];//asigno el numero que salio en el indice de la JugadasComputadora
+							JugadasComputadora[1][ContadorComputadora] = Palo;//asigna el palo que sale a la jugada de la computadora
+							ContadorComputadora ++;//sumo 1 al contador de la computadora
+							if (NumeroAleatorio < 7)//si NumeroAleatorio es menor a 7 significa que la carta esta etre 1 y 7
+								{
+									SumaComputadora = SumaComputadora + Mazo[1][NumeroAleatorio];// suma a SumaComputadora el numero aleatorio
+								}
+							else // si no es menor que 7 significa que es 10 11 o 12
+							{
+								SumaComputadora = SumaComputadora + 0.5;
+							}
+						} while(SumaComputadora < 7.6 && SumaComputadora < SumaJugador);//juego mientras sea menor a 7.5 y sea menos que lo que saco el jugador
+						
+					if (SumaComputadora > SumaJugador && SumaComputadora < 7.6)
+						{
+						cout << "Bueno, " << Jugador << " parece que le he ganado." << endl;
+						}
+					if (SumaComputadora < SumaJugador || SumaComputadora > 7.5)
+						{
+						cout << "Al parecer, le ha ganado a la casa..." << endl;
+						}
+					if (SumaComputadora == SumaJugador)
+						{
+						cout << Jugador << " ,no es algo muy habitual, pero parece que hemos empatado";
+						}
 					break;
 				}
 			}

@@ -46,6 +46,10 @@ void PintarLimites() {
 		gotoxy(2,i); 
 		printf("%c",186);
 		
+		//limite central
+		gotoxy(30,i);
+		printf("%c",186);
+		
 		//limite derecha
 		gotoxy(77,i); 
 		printf("%c",186);
@@ -58,11 +62,17 @@ void PintarLimites() {
 	gotoxy(2,33);
 	printf("%c",200);
 	
+	gotoxy(30,3);
+	printf("%c",203);
+	
 	gotoxy(77,3);
 	printf("%c",187);
 	
 	gotoxy(77,33);
 	printf("%c",188);
+	
+	gotoxy(30,33);
+	printf("%c",202);
 	
 }
 
@@ -89,7 +99,7 @@ int main (int argc, char *argv[]) {
 			{
 				x--;
 			}
-			if(tecla == DERECHA && x < 76)
+			if(tecla == DERECHA && x < 29)
 			{
 				x++;
 			}

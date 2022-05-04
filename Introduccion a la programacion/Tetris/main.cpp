@@ -47,7 +47,7 @@ void PintarLimites() {
 		printf("%c",186);
 		
 		//limite central
-		gotoxy(30,i);
+		gotoxy(13,i);
 		printf("%c",186);
 		
 		//limite derecha

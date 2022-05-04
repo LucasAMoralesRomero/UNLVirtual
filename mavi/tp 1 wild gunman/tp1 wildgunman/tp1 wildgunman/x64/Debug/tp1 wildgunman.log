@@ -1,0 +1,12 @@
+﻿  juego.cpp
+C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\mavi\tp 1 wild gunman\tp1 wildgunman\tp1 wildgunman\juego.cpp(19,62): warning C4244: 'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\mavi\tp 1 wild gunman\tp1 wildgunman\tp1 wildgunman\juego.cpp(19,49): warning C4244: 'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  tp1 wildgunman.vcxproj -> C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\mavi\tp 1 wild gunman\tp1 wildgunman\x64\Debug\tp1 wildgunman.exe

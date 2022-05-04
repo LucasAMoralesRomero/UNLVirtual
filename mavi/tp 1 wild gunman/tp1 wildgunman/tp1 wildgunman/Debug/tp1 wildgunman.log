@@ -1,0 +1,12 @@
+﻿  main.cpp
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) sin resolver al que se hace referencia en la función _main
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ) sin resolver al que se hace referencia en la función _main
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z) sin resolver al que se hace referencia en la función _main
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ) sin resolver al que se hace referencia en la función _main
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z) sin resolver al que se hace referencia en la función _main
+main.obj : error LNK2019: símbolo externo "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ) sin resolver al que se hace referencia en la función _main
+C:\SFML-2.5.1\lib\sfml-graphics-d.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'x86'
+C:\SFML-2.5.1\lib\sfml-main-d.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'x86'
+C:\SFML-2.5.1\lib\sfml-system-d.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'x86'
+C:\SFML-2.5.1\lib\sfml-window-d.lib : warning LNK4272: el tipo de máquina de biblioteca 'x64' está en conflicto con el tipo de máquina de destino 'x86'
+C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\mavi\tp 1 wild gunman\tp1 wildgunman\Debug\tp1 wildgunman.exe : fatal error LNK1120: 6 externos sin resolver

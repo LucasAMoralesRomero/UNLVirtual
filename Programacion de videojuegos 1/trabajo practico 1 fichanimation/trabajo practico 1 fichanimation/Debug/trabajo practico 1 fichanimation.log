@@ -1,0 +1,5 @@
+﻿  Afichmation.cpp
+C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\Programacion de videojuegos 1\trabajo practico 1 fichanimation\Afichmation.h(23,10): fatal error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  main.cpp
+C:\Users\Gaby\Documents\UNLVirtual\UNLVirtual\Programacion de videojuegos 1\trabajo practico 1 fichanimation\main.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Generando código...

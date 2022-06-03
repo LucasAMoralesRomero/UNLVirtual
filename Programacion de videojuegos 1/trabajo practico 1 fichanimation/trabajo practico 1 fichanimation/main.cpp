@@ -3,9 +3,9 @@
 
 using namespace sf;
 
-int main(int argc, char *argv[]){
-	RenderWindow *w = new RenderWindow(VideoMode(640,480),"Ejemplo de SFML");
-	w->setFramerateLimit(60);
+int main(int argc, char* argv[]) {
+	RenderWindow* w = new RenderWindow(VideoMode(640, 480), "Ejemplo de SFML");
+	w->setFramerateLimit(60);//se indica el limite de frames
 	Texture textureBackground;
 	textureBackground.loadFromFile("assets/mundo_fondo.jpg");
 	Sprite spriteBackground;
@@ -13,6 +13,8 @@ int main(int argc, char *argv[]){
 	spriteBackground.setScale((float)(w->getSize().x) / textureBackground.getSize().x, (float)(w->getSize().y) / textureBackground.getSize().y); //escalamos el fondo
 	int floor = 380;//este integer determina el piso
 	bool jumping = false;//booleano que indica si estoy saltando
+	int bloques[] = { 1,2,3,4,5,6,7,8,9,10 }; // se crea array para los numero de los bloques
+
 	
 	Afichmation anim("assets/spritesheet.png", true, 104, 125);
 	anim.Add("idle", {0, 1, 2, 1, 0}, 8, true);
@@ -20,7 +22,7 @@ int main(int argc, char *argv[]){
 	anim.Add("jump", {12,13,14,14,13,12}, 8, true);
 	anim.Play("idle");
 	
-	anim.setScale(Vector2f(1.f, 1.f));
+	anim.setScale(Vector2f(0.75f, 0.75f));//seteo escala de mario a 0.75
 	anim.move(200,1);
 	
 	while(w->isOpen()) {
@@ -40,11 +42,11 @@ int main(int argc, char *argv[]){
 
 
 				}
-				else if (Keyboard::isKeyPressed(Keyboard::Right))//correr a la derecha
+				else if (Keyboard::isKeyPressed(Keyboard::Right))//correr a la derecha a 5 puntos x ciclo
 				{
 					anim.Play("run");
 					anim.FlipX(true);
-					anim.setPosition(anim.getPosition().x + 2, anim.getPosition().y);
+					anim.setPosition(anim.getPosition().x + 5, anim.getPosition().y);
 
 
 				}
@@ -52,7 +54,7 @@ int main(int argc, char *argv[]){
 				{
 					anim.Play("run");
 					anim.FlipX(false);
-					anim.setPosition(anim.getPosition().x - 2, anim.getPosition().y);
+					anim.setPosition(anim.getPosition().x - 5, anim.getPosition().y);
 
 				}
 				break;

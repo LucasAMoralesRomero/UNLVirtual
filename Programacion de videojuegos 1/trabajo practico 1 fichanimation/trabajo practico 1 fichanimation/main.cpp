@@ -12,11 +12,12 @@ int main(int argc, char *argv[]){
 	spriteBackground.setTexture(textureBackground);
 	spriteBackground.setScale((float)(w->getSize().x) / textureBackground.getSize().x, (float)(w->getSize().y) / textureBackground.getSize().y); //escalamos el fondo
 	int floor = 380;//este integer determina el piso
+	bool jumping = false;//booleano que indica si estoy saltando
 	
 	Afichmation anim("assets/spritesheet.png", true, 104, 125);
 	anim.Add("idle", {0, 1, 2, 1, 0}, 8, true);
-	anim.Add("run", {3, 4, 5, 6, 7, 6, 5, 4}, 8, true);
-	anim.Add("jump", {12,13,14,15,14,13,12}, 8, true);
+	anim.Add("run", {3, 4, 5, 6, 7, 6, 5, 4, 3}, 8, true);
+	anim.Add("jump", {12,13,14,14,13,12}, 8, true);
 	anim.Play("idle");
 	
 	anim.setScale(Vector2f(1.f, 1.f));
@@ -27,29 +28,40 @@ int main(int argc, char *argv[]){
 		while(w->pollEvent(e)) {
 	
 			switch (e.type) {
-				case Event::KeyPressed://procesamos las teclas marcadas por el usuariom el input
-					if (Keyboard::isKeyPressed(Keyboard::Space))//barra espaciadora para saltar
-					{
+			case Event::KeyPressed://procesamos las teclas marcadas por el usuariom el input
+				if (Keyboard::isKeyPressed(Keyboard::Space))//barra espaciadora para saltar
+				{
+					//solamente salto si no estoy saltando
+					if (!jumping) {
+						jumping = true;
 						anim.Play("jump");
-						anim.setPosition(anim.getPosition().x, anim.getPosition().y - 40);
-						
+						anim.setPosition(anim.getPosition().x, anim.getPosition().y - 120);
 					}
-					else if (Keyboard::isKeyPressed(Keyboard::Right))//correr a la derecha
+
+
+				}
+				else if (Keyboard::isKeyPressed(Keyboard::Right))//correr a la derecha
+				{
+					anim.Play("run");
+					anim.FlipX(true);
+					anim.setPosition(anim.getPosition().x + 2, anim.getPosition().y);
+
+
+				}
+				else if (Keyboard::isKeyPressed(Keyboard::Left))//correr a la izquierda
+				{
+					anim.Play("run");
+					anim.FlipX(false);
+					anim.setPosition(anim.getPosition().x - 2, anim.getPosition().y);
+
+				}
+				break;
+			default:
+				if (anim.getPosition().y > floor || anim.getPosition().y == floor)
 					{
-						anim.Play("run");
-						anim.FlipX(true);
-						anim.setPosition(anim.getPosition().x + 2, anim.getPosition().y);
-						
-						
+						jumping = false;
+						anim.Play("idle"); //animacion que se reproduce por default si no pulsamos ninguna tecla
 					}
-					else if (Keyboard::isKeyPressed(Keyboard::Left))//correr a la izquierda
-					{
-						anim.Play("run");
-						anim.FlipX(false);
-						anim.setPosition(anim.getPosition().x - 2, anim.getPosition().y);
-						
-					}
-			
 				break;
 				
 			
@@ -63,7 +75,7 @@ int main(int argc, char *argv[]){
 		if (anim.getPosition().y < floor) {
 			anim.setPosition(anim.getPosition().x, anim.getPosition().y + 4);
 		}
-		if (anim.getPosition().y > floor)
+		else if (anim.getPosition().y > floor)
 		{
 			anim.setPosition(anim.getPosition().x, (float)floor);
 		}

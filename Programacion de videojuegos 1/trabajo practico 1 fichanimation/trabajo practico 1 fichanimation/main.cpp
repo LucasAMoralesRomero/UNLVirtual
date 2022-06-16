@@ -4,6 +4,19 @@
 #include <cstdlib>
 
 using namespace sf;
+using namespace std;
+
+//clase bloque
+class bloque
+#include <SFML/Graphics.hpp>
+	
+{
+	Texture textureBlock;//textura de bloque
+	textureBlock.loadFromFile("assets/bloques_pared.jpg");
+	Sprite sprite;
+	sprite.setTexture(textureBlock);//seteo la textura de bloque en el sprite
+	
+}; //NO olvidar el ;
 
 int main(int argc, char* argv[]) {
 	RenderWindow* w = new RenderWindow(VideoMode(640, 480), "Ejemplo de SFML");
@@ -11,20 +24,26 @@ int main(int argc, char* argv[]) {
 	Texture textureBackground;
 	textureBackground.loadFromFile("assets/mundo_fondo.jpg");
 	Sprite spriteBackground;
+
+	
+
 	spriteBackground.setTexture(textureBackground);
 	spriteBackground.setScale((float)(w->getSize().x) / textureBackground.getSize().x, (float)(w->getSize().y) / textureBackground.getSize().y); //escalamos el fondo
 	int floor = 380;//este integer determina el piso
 	bool jumping = false;//booleano que indica si estoy saltando
 	int bloques[] = { 1,2,3,4,5,6,7,8,9,10 }; // se crea array para los numero de los bloques
+	int bloquesMezclados[] = { 1,2,3,4,5,6,7,8,9,10 };//array para almacenar los nuemrosaleatorios en el orden aleatorio
 	int auxiliar = 0;//a almacena el numero aleatorio creado
-	int time = 60;//integer que almacenael tiempo
+	int time = 60;//integer que almacena el tiempo
 
-	for (int b = 0; b < 10; b++) {//muestro el arreglo anes para ver que esa cargado con el preset
+
+	for (int b = 0; b < 10; b++) {//muestro el arreglo antes para ver que esa cargado con el preset
 		cout << bloques[b] << endl;
 	}
 	for (int i = 0; i < 10; i++) {//lleno el arreglo con valores random
 		auxiliar = rand() % 1000;
-		bloques[i] = auxiliar;
+		bloques[i] = auxiliar;//asignamos el valor randoma auxiliar
+		bloquesMezclados[i] = auxiliar;//almacenamos el valor random en el array(luego lo usaremos para mostrar el valor del array en este orden
 	}
 	for (int b = 0; b < 10; b++) {//vuelvo a mostrar el arreglo para ver que esta cambiado
 		cout << bloques[b] << endl;

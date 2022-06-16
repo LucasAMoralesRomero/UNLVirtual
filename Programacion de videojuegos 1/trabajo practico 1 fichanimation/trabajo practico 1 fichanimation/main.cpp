@@ -8,6 +8,7 @@ using namespace std;
 
 //clase bloque
 class bloque
+	
 #include <SFML/Graphics.hpp>
 	
 {

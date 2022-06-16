@@ -1,5 +1,7 @@
 ﻿#include <SFML/Graphics.hpp>
 #include "Afichmation.h"
+#include <iostream>
+#include <cstdlib>
 
 using namespace sf;
 
@@ -14,7 +16,36 @@ int main(int argc, char* argv[]) {
 	int floor = 380;//este integer determina el piso
 	bool jumping = false;//booleano que indica si estoy saltando
 	int bloques[] = { 1,2,3,4,5,6,7,8,9,10 }; // se crea array para los numero de los bloques
+	int auxiliar = 0;//a almacena el numero aleatorio creado
+	int time = 60;//integer que almacenael tiempo
 
+	for (int b = 0; b < 10; b++) {//muestro el arreglo anes para ver que esa cargado con el preset
+		cout << bloques[b] << endl;
+	}
+	for (int i = 0; i < 10; i++) {//lleno el arreglo con valores random
+		auxiliar = rand() % 1000;
+		bloques[i] = auxiliar;
+	}
+	for (int b = 0; b < 10; b++) {//vuelvo a mostrar el arreglo para ver que esta cambiado
+		cout << bloques[b] << endl;
+	}
+	//ordenamos el arreglo bloques y lo guardamos en el areglo bloquesOrdenados
+	for (int i = 0; i < 10; i++) {//lo necesito para recorrerlos todos
+		for (int j = 0; j < 9; j++) {//lo necesito para observar el siguiente
+			if (bloques[j] > bloques[j + 1]) {//Si el valor actual es mayor que el valor siguiente
+				//lo que tengo en el valor actual lo recuerdo en la variable auxiliar
+				auxiliar = bloques[j];
+				//lo que tengo en la posición siguiente lo coloco en la posición de lectura actual
+				bloques[j] = bloques[j + 1];
+				//y lo que tenía en la posición actual (que sobreescribí antes) lo tenía salvado en el auxiliar
+				//y de ese modo provoco un intercambio
+				bloques[j + 1] = auxiliar;
+			}
+		}
+	}
+	for (int b = 0; b < 10; b++) {//vemos si el array esta ordenado
+		cout << bloques[b] << endl;
+	}
 	
 	Afichmation anim("assets/spritesheet.png", true, 104, 125);
 	anim.Add("idle", {0, 1, 2, 1, 0}, 8, true);
